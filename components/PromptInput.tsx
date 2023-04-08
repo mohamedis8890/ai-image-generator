@@ -1,11 +1,40 @@
+"use client";
+import { useState } from "react";
+
 function PromptInput() {
+  const [input, setInput] = useState("");
   return (
     <div className="m-5">
       <form className="flex flex-col lg:flex-row shadow-md shadow-slate-600/10 border rounded-md lg:divide-x">
-        <textarea className="flex-1 p-4 rounded-md outline-none" />
-        <button>Generate</button>
-        <button>Use Suggestion</button>
-        <button>New Suggestion</button>
+        <textarea
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          className="flex-1 p-4 rounded-md outline-none"
+          placeholder="Enter a prompt..."
+        />
+        <button
+          disabled={!input}
+          className={`p-4 font-bold ${
+            input
+              ? "bg-violet-500 text-white transition-colors duration-200"
+              : "text-gray-300 cursor-not-allowed "
+          }`}
+          type="submit"
+        >
+          Generate
+        </button>
+        <button
+          type="button"
+          className="p-4 bg-violet-400 text-white transition-colors duration-200 font-bold disabled:text-gray-300 disabled:bg-gray-400 disabled:cursor-not-allowed"
+        >
+          Use Suggestion
+        </button>
+        <button
+          type="button"
+          className="p-4 bg-white text-violet-500 border-none rounded-b-md md:rounded-r-md md:rounded-bl-none transition-colors duration-200 font-bold "
+        >
+          New Suggestion
+        </button>
       </form>
     </div>
   );
