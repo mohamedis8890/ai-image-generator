@@ -14,7 +14,7 @@ function PromptInput() {
     mutate,
     isValidating,
   } = useSWR("/api/suggestion", fetchSuggestionFromChatGPT, {
-    revalidateOnFocus: false,
+    revalidateOnFocus: true,
   });
 
   const { mutate: refreshImages } = useSWR("images", fetchImages, {
