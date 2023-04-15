@@ -2,7 +2,7 @@ export async function GET(request: Request) {
   let textData = "";
   try {
     const response = await fetch(
-      "http://127.0.0.1:7071/api/getChatGPTSuggestion",
+      "https://ai-image-generator-modev.azurewebsites.net/api/getchatgptsuggestion",
       {
         cache: "no-store",
       }

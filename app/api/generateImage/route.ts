@@ -6,13 +6,16 @@ export async function POST(request: Request) {
   let textData;
 
   try {
-    const response = await fetch("http://127.0.0.1:7071/api/generateImage", {
-      method: "POST",
-      body: JSON.stringify({ prompt }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      "https://ai-image-generator-modev.azurewebsites.net/api/generateimage",
+      {
+        method: "POST",
+        body: JSON.stringify({ prompt }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
     textData = await response.text();
   } catch (error) {
     console.error(error);
