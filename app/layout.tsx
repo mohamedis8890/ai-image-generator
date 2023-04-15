@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import PromptInput from "@/components/PromptInput";
 import "../styles/globals.css";
+import ClientProvider from "@/components/ClientProvider";
 
 export const metadata = {
   title: "AI Image Generator",
@@ -16,9 +17,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header />
-        <PromptInput />
-        {children}
+        <ClientProvider>
+          <Header />
+          <PromptInput />
+          {children}
+        </ClientProvider>
       </body>
     </html>
   );

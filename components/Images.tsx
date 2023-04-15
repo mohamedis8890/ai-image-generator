@@ -15,7 +15,7 @@ export default function Images() {
     mutate: refreshImages,
     isValidating,
     isLoading,
-  } = useSWR("api/getImages", fetchImages, { revalidateOnFocus: false });
+  } = useSWR("images", fetchImages, { revalidateOnFocus: false });
 
   console.log(images);
 
