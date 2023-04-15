@@ -3,7 +3,7 @@ import Link from "next/link";
 
 function Header() {
   return (
-    <header className="flex justify-between p-5 bg-white backdrop-blur-md shadow-md sticky z-50">
+    <header className="flex justify-between p-5 bg-slate-100/20 backdrop-filter backdrop-blur-md shadow-md sticky top-0 z-50">
       {/* left */}
       <div className="flex space-x-2 items-center">
         <Image
@@ -14,7 +14,7 @@ function Header() {
         />
         <div>
           <h1 className="font-bold">
-            The MoDev <span className="text-violet-400">AI</span> Image
+            The MoDev <span className="text-violet-700">AI</span> Image
             Generator
           </h1>
           <h2 className="text-xs ">
@@ -23,7 +23,7 @@ function Header() {
         </div>
       </div>
       {/* right */}
-      <div className="flex items-center text-xs md:text-base divide-x text-gray-500">
+      <div className="flex items-center text-xs md:text-base divide-x text-gray-800">
         <Link
           className="px-2 font-light text-right"
           href="https://www.modev.guru/"
