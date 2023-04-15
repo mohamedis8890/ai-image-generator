@@ -1,5 +1,6 @@
 "use client";
-import { EventHandler, FormEvent, useState } from "react";
+
+import { FormEvent, useState } from "react";
 import useSWR from "swr";
 import fetchSuggestionFromChatGPT from "@/lib/fetchSuggestionFromChatGPT";
 import fetchImages from "@/lib/fetchImages";
@@ -69,9 +70,9 @@ function PromptInput() {
           onChange={(e) => setInput(e.target.value)}
           className="flex-1 p-4 rounded-md outline-none"
           placeholder={
-            loading
-              ? "Getting a suggestion from ChatGPT..."
-              : suggestion || "Enter a prompt..."
+            (loading && "Getting Suggestion from ChatGPT...") ||
+            suggestion ||
+            "Enter a prompt..."
           }
         />
         <button

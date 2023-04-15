@@ -17,8 +17,6 @@ export default function Images() {
     isLoading,
   } = useSWR("images", fetchImages, { revalidateOnFocus: false });
 
-  console.log(images);
-
   return (
     <div>
       <button
