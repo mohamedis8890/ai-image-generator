@@ -3,8 +3,9 @@ import PromptInput from "@/components/PromptInput";
 import "../styles/globals.css";
 
 export const metadata = {
-  title: "Create Next App",
-  description: "Generated  by create next app",
+  title: "AI Image Generator",
+  description:
+    "Harness the power of ChatGPT and DALL﹒E, Create revolutionarry AI images.",
 };
 
 export default function RootLayout({
