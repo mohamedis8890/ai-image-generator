@@ -9,13 +9,15 @@ type ImageType = {
   url: string;
 };
 
-export default function Images() {
+function Images() {
   const {
     data: images,
+    isLoading,
     mutate: refreshImages,
     isValidating,
-    isLoading,
-  } = useSWR("images", fetchImages, { revalidateOnFocus: false });
+  } = useSWR("images", fetchImages, {
+    revalidateOnFocus: false,
+  });
 
   return (
     <div>
@@ -30,25 +32,30 @@ export default function Images() {
       {isLoading && (
         <p className="animate-pulse text-center pb-7 font-extralight">
           Loading <span className="text-violet-400">AI</span> Generated
-          Images...{" "}
+          Images...
         </p>
       )}
-      <div className="grid gap-4  grid-cols-1  md:grid-cols-2 lg:grid-cols-3  xl:grid-cols-4 2xl:grid-cols-5 px-0 md:px-10">
-        {images?.imageUrls?.map((image: ImageType, index: number) => (
+
+      <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 px-0 md:px-10">
+        {images?.imageUrls?.map((image: ImageType, i: number) => (
           <div
-            className={`relative  cursor-help hover:scale-105 transition-transform duration-200 ease-in-out ${
-              index === 0 && "md:col-span-2 md:row-span-2"
-            }`}
+            className={`relative cursor-help ${
+              i === 0 && "md:col-span-2 md:row-span-2"
+            } hover:scale-[103%] transition-transform duration-200 ease-in-out 
+            
+            `}
             key={image.name}
           >
+            {/* create a white div that when hovered it appears */}
             <div className="absolute flex justify-center items-center w-full h-full bg-white opacity-0 hover:opacity-80 transition-opacity duration-200 z-10">
               <p className="text-center font-light text-lg p-5">
-                {image.name.split("_")[0]}
+                {/* This removes the Timestamp and File extension */}
+                {image.name.split("_").shift()?.toString().split(".").shift()}
               </p>
             </div>
             <Image
               src={image.url}
-              alt={image.name}
+              alt=""
               height={800}
               width={800}
               className="w-full rounded-sm shadow-2xl drop-shadow-lg -z-10"
@@ -59,3 +66,5 @@ export default function Images() {
     </div>
   );
 }
+
+export default Images;

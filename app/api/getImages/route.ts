@@ -2,7 +2,6 @@ export async function GET(request: Request) {
   const response = await fetch(
     "https://ai-image-generator-modev.azurewebsites.net/api/getimages",
     {
-      method: "GET",
       cache: "no-store",
     }
   );
@@ -12,5 +11,7 @@ export async function GET(request: Request) {
 
   const data = JSON.parse(textData);
 
-  return new Response(JSON.stringify(data), { status: 200 });
+  return new Response(JSON.stringify(data), {
+    status: 200,
+  });
 }
