@@ -37,6 +37,7 @@ function PromptInput() {
     const p = useSuggestion
       ? suggestion
       : inputPrompt || (!isLoading && !isValidating && suggestion);
+    console.log("suggestion: ", suggestion);
 
     const res = await fetch("/api/generateImage", {
       method: "POST",
